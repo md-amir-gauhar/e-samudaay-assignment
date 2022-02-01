@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useFetchAnimals from "./useFetchAnimals"
+import useFetchAnimals from "./hooks/useFetchAnimals"
 import Pagination from './components/Pagination'
 import Animal from './components/Animal'
 

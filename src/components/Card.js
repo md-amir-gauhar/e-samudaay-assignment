@@ -7,7 +7,7 @@ const Card = ({ animal }) => {
   return (
     <div className="card">
       <h3>{animal.name}</h3>
-      <p>{age} months</p>
+      <p><span style={{fontWeight: 600}}>Age:</span> {age} months</p>
     </div>
   )
 }

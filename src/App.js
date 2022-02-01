@@ -1,24 +1,58 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
+import useFetchAnimals from "./useFetchAnimals"
+import Pagination from './components/Pagination'
+import Animal from './components/Animal'
+
 import './App.css';
 
 function App() {
+  const [query, setQuery] = useState("")
+  const [sortBy, setSortBy] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(5)
+
+  const clickHandler = () => {
+    setSortBy("bornAt")
+  }
+
+  const { animals, loading, error } = useFetchAnimals(query, sortBy)
+
+
+
+  const lastIndex = currentPage * postsPerPage;
+  const firstIndex = lastIndex - postsPerPage;
+  const currentAnimals = animals.slice(firstIndex, lastIndex)
+
+  const paginate = (currentPage) => setCurrentPage(currentPage)
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header>
+        <h1>My Pets</h1>
       </header>
-    </div>
+
+      <main className="container">
+        <form>
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search Pets..."
+          />
+          <button type="submit">🔍</button>
+        </form>
+        <div className="filter-container">
+          <button onClick={clickHandler}>Sort by age</button>
+        </div>
+        <Animal currentAnimals={currentAnimals} loading={loading} />
+        <div className="pagination-container">
+          <Pagination totalAnimals={animals.length} postsPerPage={postsPerPage} paginate={paginate} />
+        </div>
+      </main >
+    </div >
   );
 }
 

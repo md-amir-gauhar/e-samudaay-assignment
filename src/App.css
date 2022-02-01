@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+html {
+  font-size: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  margin: 0 auto;
+  width: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header {
+  margin: 1rem 0 0 1rem;
+  font-family: 'Times New Roman', Times, serif, 'Times New Roman', Times, serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 1.25rem;
+  margin: 1rem;
+}
+
+.container > form {
+  width: 100%;
+  padding: 0.2rem 0.625rem;
+  height: 3rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  display: flex;
   align-items: center;
+  border-radius: 100px;
+}
+
+.container > form > input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.container > form > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 0.625rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.pagination button,
+.filter-container button {
+  margin-right: 0.625rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.filter-container button {
+  margin: 1rem 0 .5rem 0;
+}
+
+.filter-container button:hover,
+.pagination button:hover {
+  background-color: rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .app {
+    width: 100%;
   }
 }

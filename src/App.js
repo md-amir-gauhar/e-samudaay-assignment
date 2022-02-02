@@ -18,15 +18,11 @@ function App() {
 
   const { animals, loading, error } = useFetchAnimals(query, sortBy)
 
-
-
   const lastIndex = currentPage * postsPerPage;
   const firstIndex = lastIndex - postsPerPage;
   const currentAnimals = animals.slice(firstIndex, lastIndex)
 
   const paginate = (currentPage) => setCurrentPage(currentPage)
-
-
 
   return (
     <div className="app">

@@ -1,13 +1,11 @@
 import React from 'react'
+import Moment from 'react-moment';
 
 const Card = ({ animal }) => {
-  const dob = new Date(animal.bornAt)
-  let age = Date.now() - dob.getTime()
-  age = (age / 1000 / 3600 / 24 / 30).toFixed()
   return (
     <div className="card">
       <h3>{animal.name}</h3>
-      <p><span style={{fontWeight: 600}}>Age:</span> {age} months</p>
+      <p><span style={{ fontWeight: 600 }}>Age:</span> <Moment fromNow ago>{animal.bornAt}</Moment></p>
     </div>
   )
 }

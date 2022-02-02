@@ -14,7 +14,7 @@ const useFetchAnimals = (query, sortBy) => {
     axios({
       method: "GET",
       url: BASE_URL,
-      params: { name: query, sortBy: sortBy },
+      params: { name: query, sortBy: sortBy, order: "desc" },
       cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
       setAnimals(res.data);
